@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza Ordering Form</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background: #ffffff;
+      color: #000;
+    }
+
+    .container {
+      width: 520px;
+      border: 2px solid #000;
+      padding: 18px 20px;
+      margin: 20px auto;
+    }
+
+    h1 {
+      font-size: 44px;
+      font-weight: bold;
+      margin: 0 0 18px 0;
+    }
+
+    h2 {
+      font-size: 38px;
+      font-weight: bold;
+      margin: 22px 0 12px 0;
+    }
+
+    .field-row {
+      display: flex;
+      align-items: center;
+      margin: 6px 0;
+    }
+
+    .field-row label {
+      width: 85px;
+      font-size: 22px;
+    }
+
+    .field-row input[type="text"],
+    .field-row input[type="tel"],
+    .field-row input[type="email"] {
+      width: 330px;
+      height: 28px;
+      font-size: 18px;
+      padding: 2px 6px;
+    }
+
+    .select-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+    }
+
+    select {
+      font-size: 18px;
+      height: 32px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 25px;
+      margin-top: 8px;
+      width: 350px;
+    }
+
+    textarea {
+      width: 350px;
+      height: 55px;
+      font-size: 18px;
+      padding: 6px;
+    }
+
+    button {
+      margin-top: 6px;
+      font-size: 20px;
+      padding: 2px 10px;
+    }
+
+    .games-title {
+      font-size: 24px;
+      margin-top: 22px;
+      margin-bottom: 6px;
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: 22px;
+      width: 380px;
+    }
+
+    th, td {
+      border: 2px solid #000;
+      padding: 4px 8px;
+      vertical-align: middle;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Pizza Ordering Form</h1>
+
+    <form action="#" method="post">
+      <!-- CONTACT INFO -->
+      <h2>Contact Information</h2>
+
+      <div class="field-row">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="field-row">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+
+      <div class="field-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <!-- PIZZA SIZE -->
+      <h2>Select Pizza Size</h2>
+
+      <div class="select-row">
+        <label for="size">Pizza Size:</label>
+        <select id="size" name="size" required>
+          <option value="">--Select Size--</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+          <option value="XLarge">XLarge</option>
+        </select>
+      </div>
+
+      <!-- SAUCE -->
+      <h2>Select Sauce</h2>
+
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="marinara" name="sauce" value="Marinara" required />
+          <label for="marinara">Marinara</label>
+        </div>
+
+        <div>
+          <input type="radio" id="ranch" name="sauce" value="Ranch" required />
+          <label for="ranch">Ranch</label>
+        </div>
+
+        <div>
+          <input type="radio" id="nosauce" name="sauce" value="No Sauce" required />
+          <label for="nosauce">No Sauce</label>
+        </div>
+      </div>
+
+      <!-- TOPPINGS -->
+      <h2>Select Toppings</h2>
+
+      <div class="checkbox-group checkbox-grid">
+        <div>
+          <input type="checkbox" id="pepperoni" name="toppings" value="Pepperoni" />
+          <label for="pepperoni">Pepperoni</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="sausage" name="toppings" value="Sausage" />
+          <label for="sausage">Sausage</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="mushroom" name="toppings" value="Mushroom" />
+          <label for="mushroom">Mushroom</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="pineapple" name="toppings" value="Pineapple" />
+          <label for="pineapple">Pineapple</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="peppers" name="toppings" value="Peppers" />
+          <label for="peppers">Peppers</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="onions" name="toppings" value="Onions" />
+          <label for="onions">Onions</label>
+        </div>
+      </div>
+
+      <!-- INSTRUCTIONS -->
+      <h2>Additional Instructions</h2>
+      <textarea name="instructions" id="instructions" placeholder="Add instructions"></textarea>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- TABLE -->
+    <p class="games-title">List of My Favorite Games</p>
+
+    <table border="1">
+      <caption> </caption>
+      <thead>
+        <tr>
+          <th scope="col">Developer</th>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="3">Bungie</td>
+          <td>Halo</td>
+          <td>2001</td>
+        </tr>
+        <tr>
+          <td>Halo 2</td>
+          <td>2004</td>
+        </tr>
+        <tr>
+          <td>Halo 3</td>
+          <td>2007</td>
+        </tr>
+        <tr>
+          <td>Mojang</td>
+          <td>Minecraft</td>
+          <td>2011</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="3">Count: 4</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
+</html>
