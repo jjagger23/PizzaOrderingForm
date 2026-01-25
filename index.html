@@ -1,104 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pizza Ordering Form</title>
   <style>
     body {
       font-family: "Times New Roman", Times, serif;
-      background: #ffffff;
+      background: #fff;
       color: #000;
+      margin: 0;
+      padding: 0;
     }
 
-    .container {
+    .page {
       width: 520px;
+      margin: 18px auto;
       border: 2px solid #000;
-      padding: 18px 20px;
-      margin: 20px auto;
+      padding: 18px 18px 22px;
+      box-sizing: border-box;
     }
 
-    h1 {
-      font-size: 44px;
-      font-weight: bold;
-      margin: 0 0 18px 0;
+    header h1 {
+      font-size: 46px;
+      font-weight: 700;
+      margin: 0 0 18px;
+      line-height: 1;
     }
 
-    h2 {
+    section h2 {
       font-size: 38px;
-      font-weight: bold;
-      margin: 22px 0 12px 0;
+      font-weight: 700;
+      margin: 18px 0 10px;
+      line-height: 1.05;
     }
 
-    .field-row {
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      min-inline-size: auto;
+    }
+
+    legend {
+      padding: 0;
+      margin: 0;
+      font-size: 0; /* keep semantic legend without visual duplicate */
+    }
+
+    .row {
       display: flex;
       align-items: center;
+      gap: 10px;
       margin: 6px 0;
     }
 
-    .field-row label {
-      width: 85px;
+    .row label {
+      width: 90px;
       font-size: 22px;
     }
 
-    .field-row input[type="text"],
-    .field-row input[type="tel"],
-    .field-row input[type="email"] {
+    .row input[type="text"],
+    .row input[type="tel"],
+    .row input[type="email"] {
       width: 330px;
       height: 28px;
       font-size: 18px;
       padding: 2px 6px;
+      box-sizing: border-box;
     }
 
     .select-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-top: 8px;
       font-size: 22px;
     }
 
     select {
-      font-size: 18px;
       height: 32px;
+      font-size: 18px;
     }
 
-    .radio-group,
-    .checkbox-group {
+    .radio-group {
+      margin-top: 8px;
       font-size: 24px;
       line-height: 1.4;
     }
 
-    .checkbox-grid {
+    .radio-group .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toppings-grid {
+      margin-top: 10px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px 25px;
-      margin-top: 8px;
-      width: 350px;
+      gap: 6px 24px;
+      width: 360px;
+      font-size: 24px;
+    }
+
+    .toppings-grid .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     textarea {
-      width: 350px;
+      width: 360px;
       height: 55px;
       font-size: 18px;
       padding: 6px;
+      box-sizing: border-box;
+      resize: both;
     }
 
     button {
       margin-top: 6px;
       font-size: 20px;
-      padding: 2px 10px;
+      padding: 2px 12px;
     }
 
     .games-title {
       font-size: 24px;
-      margin-top: 22px;
-      margin-bottom: 6px;
+      margin: 22px 0 6px;
     }
 
     table {
       border-collapse: collapse;
+      width: 390px;
       font-size: 22px;
-      width: 380px;
     }
 
     th, td {
@@ -110,150 +145,192 @@
     caption {
       caption-side: top;
       text-align: left;
-      font-size: 24px;
-      margin-bottom: 6px;
+      font-size: 0; /* matches screenshot (no visible caption text) */
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Pizza Ordering Form</h1>
+  <div class="page">
+    <header>
+      <h1>Pizza Ordering Form</h1>
+    </header>
 
-    <form action="#" method="post">
-      <!-- CONTACT INFO -->
-      <h2>Contact Information</h2>
+    <main>
+      <form action="#" method="post">
+        <!-- CONTACT INFO -->
+        <section aria-labelledby="contact-info">
+          <h2 id="contact-info">Contact Information</h2>
 
-      <div class="field-row">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-      </div>
+          <fieldset>
+            <legend>Contact Information</legend>
 
-      <div class="field-row">
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required />
-      </div>
+            <div class="row">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+            </div>
 
-      <div class="field-row">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-      </div>
+            <div class="row">
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
 
-      <!-- PIZZA SIZE -->
-      <h2>Select Pizza Size</h2>
+            <div class="row">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </fieldset>
+        </section>
 
-      <div class="select-row">
-        <label for="size">Pizza Size:</label>
-        <select id="size" name="size" required>
-          <option value="">--Select Size--</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
-          <option value="XLarge">XLarge</option>
-        </select>
-      </div>
+        <!-- SIZE -->
+        <section aria-labelledby="pizza-size">
+          <h2 id="pizza-size">Select Pizza Size</h2>
 
-      <!-- SAUCE -->
-      <h2>Select Sauce</h2>
+          <div class="select-row">
+            <label for="size">Pizza Size:</label>
+            <select id="size" name="size" required>
+              <option value="">--Select Size--</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="XLarge">XLarge</option>
+            </select>
+          </div>
+        </section>
 
-      <div class="radio-group">
-        <div>
-          <input type="radio" id="marinara" name="sauce" value="Marinara" required />
-          <label for="marinara">Marinara</label>
-        </div>
+        <!-- SAUCE -->
+        <section aria-labelledby="sauce">
+          <h2 id="sauce">Select Sauce</h2>
 
-        <div>
-          <input type="radio" id="ranch" name="sauce" value="Ranch" required />
-          <label for="ranch">Ranch</label>
-        </div>
+          <fieldset class="radio-group">
+            <legend>Select a sauce</legend>
 
-        <div>
-          <input type="radio" id="nosauce" name="sauce" value="No Sauce" required />
-          <label for="nosauce">No Sauce</label>
-        </div>
-      </div>
+            <!-- required on the first radio enforces “must choose one” -->
+            <div class="choice">
+              <input type="radio" id="marinara" name="sauce" value="Marinara" required>
+              <label for="marinara">Marinara</label>
+            </div>
 
-      <!-- TOPPINGS -->
-      <h2>Select Toppings</h2>
+            <div class="choice">
+              <input type="radio" id="ranch" name="sauce" value="Ranch">
+              <label for="ranch">Ranch</label>
+            </div>
 
-      <div class="checkbox-group checkbox-grid">
-        <div>
-          <input type="checkbox" id="pepperoni" name="toppings" value="Pepperoni" />
-          <label for="pepperoni">Pepperoni</label>
-        </div>
+            <div class="choice">
+              <input type="radio" id="nosauce" name="sauce" value="No Sauce">
+              <label for="nosauce">No Sauce</label>
+            </div>
+          </fieldset>
+        </section>
 
-        <div>
-          <input type="checkbox" id="sausage" name="toppings" value="Sausage" />
-          <label for="sausage">Sausage</label>
-        </div>
+        <!-- TOPPINGS -->
+        <section aria-labelledby="toppings">
+          <h2 id="toppings">Select Toppings</h2>
 
-        <div>
-          <input type="checkbox" id="mushroom" name="toppings" value="Mushroom" />
-          <label for="mushroom">Mushroom</label>
-        </div>
+          <fieldset>
+            <legend>Select toppings</legend>
 
-        <div>
-          <input type="checkbox" id="pineapple" name="toppings" value="Pineapple" />
-          <label for="pineapple">Pineapple</label>
-        </div>
+            <div class="toppings-grid">
+              <!-- 6+ checkboxes (here: 8) -->
+              <div class="choice">
+                <input type="checkbox" id="pepperoni" name="toppings" value="Pepperoni">
+                <label for="pepperoni">Pepperoni</label>
+              </div>
 
-        <div>
-          <input type="checkbox" id="peppers" name="toppings" value="Peppers" />
-          <label for="peppers">Peppers</label>
-        </div>
+              <div class="choice">
+                <input type="checkbox" id="sausage" name="toppings" value="Sausage">
+                <label for="sausage">Sausage</label>
+              </div>
 
-        <div>
-          <input type="checkbox" id="onions" name="toppings" value="Onions" />
-          <label for="onions">Onions</label>
-        </div>
-      </div>
+              <div class="choice">
+                <input type="checkbox" id="mushroom" name="toppings" value="Mushroom">
+                <label for="mushroom">Mushroom</label>
+              </div>
 
-      <!-- INSTRUCTIONS -->
-      <h2>Additional Instructions</h2>
-      <textarea name="instructions" id="instructions" placeholder="Add instructions"></textarea>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+              <div class="choice">
+                <input type="checkbox" id="pineapple" name="toppings" value="Pineapple">
+                <label for="pineapple">Pineapple</label>
+              </div>
 
-    <!-- TABLE -->
-    <p class="games-title">List of My Favorite Games</p>
+              <div class="choice">
+                <input type="checkbox" id="peppers" name="toppings" value="Peppers">
+                <label for="peppers">Peppers</label>
+              </div>
 
-    <table border="1">
-      <caption> </caption>
-      <thead>
-        <tr>
-          <th scope="col">Developer</th>
-          <th scope="col">Title</th>
-          <th scope="col">Year</th>
-        </tr>
-      </thead>
+              <div class="choice">
+                <input type="checkbox" id="onions" name="toppings" value="Onions">
+                <label for="onions">Onions</label>
+              </div>
 
-      <tbody>
-        <tr>
-          <td rowspan="3">Bungie</td>
-          <td>Halo</td>
-          <td>2001</td>
-        </tr>
-        <tr>
-          <td>Halo 2</td>
-          <td>2004</td>
-        </tr>
-        <tr>
-          <td>Halo 3</td>
-          <td>2007</td>
-        </tr>
-        <tr>
-          <td>Mojang</td>
-          <td>Minecraft</td>
-          <td>2011</td>
-        </tr>
-      </tbody>
+              <div class="choice">
+                <input type="checkbox" id="olives" name="toppings" value="Olives">
+                <label for="olives">Olives</label>
+              </div>
 
-      <tfoot>
-        <tr>
-          <td colspan="3">Count: 4</td>
-        </tr>
-      </tfoot>
-    </table>
+              <div class="choice">
+                <input type="checkbox" id="bacon" name="toppings" value="Bacon">
+                <label for="bacon">Bacon</label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- INSTRUCTIONS -->
+        <section aria-labelledby="instructions">
+          <h2 id="instructions">Additional Instructions</h2>
+          <textarea id="notes" name="instructions" placeholder="Add instructions"></textarea>
+          <br>
+          <button type="submit">Submit</button>
+        </section>
+      </form>
+
+      <!-- FAVORITE GAMES TABLE -->
+      <section aria-labelledby="games">
+        <h3 id="games" class="games-title">List of My Favorite Games</h3>
+
+        <!-- border attribute allowed (warning acceptable). Using semantic thead/tbody/tfoot. -->
+        <table border="1">
+          <caption>Favorite games table</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Developer</th>
+              <th scope="col">Title</th>
+              <th scope="col">Year</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- vertical merge -->
+            <tr>
+              <td rowspan="3">Insomniac Games</td>
+              <td>Spider-Man</td>
+              <td>2018</td>
+            </tr>
+            <tr>
+              <td>Miles Morales</td>
+              <td>2020</td>
+            </tr>
+            <tr>
+              <td>Spider-Man 2</td>
+              <td>2023</td>
+            </tr>
+
+            <tr>
+              <td>Visual Concepts</td>
+              <td>NBA 2K16</td>
+              <td>2015</td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <!-- horizontal merge -->
+            <tr>
+              <td colspan="3">Count: 4</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
   </div>
 </body>
 </html>
