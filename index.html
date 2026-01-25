@@ -1,51 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic page setup -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pizza Ordering Form</title>
+
+  <!-- Styling for the page to make it look like the example -->
   <style>
     body {
       font-family: "Times New Roman", Times, serif;
-      background: #fff;
-      color: #000;
-      margin: 0;
-      padding: 0;
+      background: white;
+      color: black;
     }
 
     .page {
       width: 520px;
       margin: 18px auto;
-      border: 2px solid #000;
-      padding: 18px 18px 22px;
-      box-sizing: border-box;
+      border: 2px solid black;
+      padding: 18px;
     }
 
     header h1 {
       font-size: 46px;
-      font-weight: 700;
-      margin: 0 0 18px;
-      line-height: 1;
+      margin-bottom: 18px;
     }
 
     section h2 {
       font-size: 38px;
-      font-weight: 700;
-      margin: 18px 0 10px;
-      line-height: 1.05;
-    }
-
-    fieldset {
-      border: 0;
-      padding: 0;
-      margin: 0;
-      min-inline-size: auto;
-    }
-
-    legend {
-      padding: 0;
-      margin: 0;
-      font-size: 0; /* keep semantic legend without visual duplicate */
+      margin-top: 18px;
+      margin-bottom: 10px;
     }
 
     .row {
@@ -60,22 +44,10 @@
       font-size: 22px;
     }
 
-    .row input[type="text"],
-    .row input[type="tel"],
-    .row input[type="email"] {
+    .row input {
       width: 330px;
       height: 28px;
       font-size: 18px;
-      padding: 2px 6px;
-      box-sizing: border-box;
-    }
-
-    .select-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 8px;
-      font-size: 22px;
     }
 
     select {
@@ -83,51 +55,28 @@
       font-size: 18px;
     }
 
-    .radio-group {
-      margin-top: 8px;
+    .radio-group,
+    .toppings-grid {
       font-size: 24px;
-      line-height: 1.4;
-    }
-
-    .radio-group .choice {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin-top: 8px;
     }
 
     .toppings-grid {
-      margin-top: 10px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6px 24px;
       width: 360px;
-      font-size: 24px;
-    }
-
-    .toppings-grid .choice {
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     textarea {
       width: 360px;
       height: 55px;
       font-size: 18px;
-      padding: 6px;
-      box-sizing: border-box;
-      resize: both;
     }
 
     button {
-      margin-top: 6px;
       font-size: 20px;
-      padding: 2px 12px;
-    }
-
-    .games-title {
-      font-size: 24px;
-      margin: 22px 0 6px;
+      margin-top: 6px;
     }
 
     table {
@@ -137,170 +86,126 @@
     }
 
     th, td {
-      border: 2px solid #000;
+      border: 2px solid black;
       padding: 4px 8px;
-      vertical-align: middle;
-    }
-
-    caption {
-      caption-side: top;
-      text-align: left;
-      font-size: 0; /* matches the assignment page (no visible caption text) */
     }
   </style>
 </head>
 
 <body>
   <div class="page">
+
+    <!-- Page title -->
     <header>
       <h1>Pizza Ordering Form</h1>
     </header>
 
     <main>
       <form action="#" method="post">
-        <!-- CONTACT INFO -->
-        <section aria-labelledby="contact-info">
-          <h2 id="contact-info">Contact Information</h2>
 
-          <fieldset>
-            <legend>Contact Information</legend>
+        <!-- Section for user contact info -->
+        <section>
+          <h2>Contact Information</h2>
 
-            <div class="row">
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required>
-            </div>
+          <!-- Name input -->
+          <div class="row">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+          </div>
 
-            <div class="row">
-              <label for="phone">Phone:</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
+          <!-- Phone input -->
+          <div class="row">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+          </div>
 
-            <div class="row">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-          </fieldset>
-        </section>
-
-        <!-- SIZE -->
-        <section aria-labelledby="pizza-size">
-          <h2 id="pizza-size">Select Pizza Size</h2>
-
-          <div class="select-row">
-            <label for="size">Pizza Size:</label>
-            <select id="size" name="size" required>
-              <option value="">--Select Size--</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="XLarge">XLarge</option>
-            </select>
+          <!-- Email input -->
+          <div class="row">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
           </div>
         </section>
 
-        <!-- SAUCE -->
-        <section aria-labelledby="sauce">
-          <h2 id="sauce">Select Sauce</h2>
+        <!-- Section to choose pizza size -->
+        <section>
+          <h2>Select Pizza Size</h2>
 
-          <fieldset class="radio-group">
-            <legend>Select a sauce</legend>
+          <label for="size">Pizza Size:</label>
+          <select id="size" required>
+            <!-- Default option -->
+            <option value="">--Select Size--</option>
+            <option>Medium</option>
+            <option>Large</option>
+            <option>XLarge</option>
+          </select>
+        </section>
 
-            <!-- required on the first radio enforces “must choose one” -->
-            <div class="choice">
-              <input type="radio" id="marinara" name="sauce" value="Marinara" required>
+        <!-- Section to choose sauce -->
+        <section>
+          <h2>Select Sauce</h2>
+
+          <!-- Radio buttons so only one sauce can be picked -->
+          <div class="radio-group">
+            <div>
+              <input type="radio" name="sauce" id="marinara" required>
               <label for="marinara">Marinara</label>
             </div>
 
-            <div class="choice">
-              <input type="radio" id="ranch" name="sauce" value="Ranch">
+            <div>
+              <input type="radio" name="sauce" id="ranch">
               <label for="ranch">Ranch</label>
             </div>
 
-            <div class="choice">
-              <input type="radio" id="nosauce" name="sauce" value="No Sauce">
+            <div>
+              <input type="radio" name="sauce" id="nosauce">
               <label for="nosauce">No Sauce</label>
             </div>
-          </fieldset>
+          </div>
         </section>
 
-        <!-- TOPPINGS -->
-        <section aria-labelledby="toppings">
-          <h2 id="toppings">Select Toppings</h2>
+        <!-- Section for choosing toppings -->
+        <section>
+          <h2>Select Toppings</h2>
 
-          <fieldset>
-            <legend>Select toppings</legend>
-
-            <div class="toppings-grid">
-              <!-- 6+ checkboxes (here: 8) -->
-              <div class="choice">
-                <input type="checkbox" id="pepperoni" name="toppings" value="Pepperoni">
-                <label for="pepperoni">Pepperoni</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="sausage" name="toppings" value="Sausage">
-                <label for="sausage">Sausage</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="mushroom" name="toppings" value="Mushroom">
-                <label for="mushroom">Mushroom</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="pineapple" name="toppings" value="Pineapple">
-                <label for="pineapple">Pineapple</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="peppers" name="toppings" value="Peppers">
-                <label for="peppers">Peppers</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="onions" name="toppings" value="Onions">
-                <label for="onions">Onions</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="olives" name="toppings" value="Olives">
-                <label for="olives">Olives</label>
-              </div>
-
-              <div class="choice">
-                <input type="checkbox" id="bacon" name="toppings" value="Bacon">
-                <label for="bacon">Bacon</label>
-              </div>
-            </div>
-          </fieldset>
+          <!-- Checkboxes so multiple toppings can be chosen -->
+          <div class="toppings-grid">
+            <label><input type="checkbox"> Pepperoni</label>
+            <label><input type="checkbox"> Sausage</label>
+            <label><input type="checkbox"> Mushroom</label>
+            <label><input type="checkbox"> Pineapple</label>
+            <label><input type="checkbox"> Peppers</label>
+            <label><input type="checkbox"> Onions</label>
+          </div>
         </section>
 
-        <!-- INSTRUCTIONS -->
-        <section aria-labelledby="instructions">
-          <h2 id="instructions">Additional Instructions</h2>
-          <textarea id="notes" name="instructions" placeholder="Add instructions"></textarea>
-          <br>
+        <!-- Extra instructions box -->
+        <section>
+          <h2>Additional Instructions</h2>
+          <textarea placeholder="Add instructions"></textarea><br>
           <button type="submit">Submit</button>
         </section>
+
       </form>
 
-      <!-- FAVORITE GAMES TABLE -->
-      <section aria-labelledby="games">
-        <h3 id="games" class="games-title">List of My Favorite Games</h3>
+      <!-- Favorite games table -->
+      <section>
+        <h3>List of My Favorite Games</h3>
 
-        <!-- border attribute allowed (warning acceptable). Using semantic HTML. -->
+        <!-- Table showing games with merged cells -->
         <table border="1">
-          <caption>Favorite games table</caption>
 
+          <!-- Table headers -->
           <thead>
             <tr>
-              <th scope="col">Developer</th>
-              <th scope="col">Title</th>
-              <th scope="col">Year</th>
+              <th>Developer</th>
+              <th>Title</th>
+              <th>Year</th>
             </tr>
           </thead>
 
+          <!-- Main table content -->
           <tbody>
-            <!-- vertical merge -->
+            <!-- Insomniac Games covers 3 rows -->
             <tr>
               <td rowspan="3">Insomniac Games</td>
               <td>Spider-Man</td>
@@ -322,14 +227,16 @@
             </tr>
           </tbody>
 
+          <!-- Bottom row that spans all columns -->
           <tfoot>
-            <!-- horizontal merge -->
             <tr>
               <td colspan="3">Count: 4</td>
             </tr>
           </tfoot>
+
         </table>
       </section>
+
     </main>
   </div>
 </body>
